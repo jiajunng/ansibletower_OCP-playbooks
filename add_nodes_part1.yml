@@ -1,0 +1,33 @@
+---
+- hosts: 127.0.0.1
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: Adding node
+      block:
+        - name: Add node FQDN to new_nodes in inventory
+          lineinfile:
+            dest: "inventory"
+            insertafter: '\[new_nodes\]'
+            line: '{{ fqdn  }}'
+        - name: Populate the inventory on Ansible Tower
+          shell: 'awx-manage inventory_import --source={{ inventory_folder }} --inventory-name={{ inventory_name }} --overwrite --overwrite-vars'
+      when: survey_var  == "node"
+    - name: Adding master
+      block:
+        - name: Add master FQDN to new_masters in inventory
+          lineinfile:
+            dest: "inventory"
+            insertafter: '\[new_masters\]'
+            line: '{{ fqdn  }}'
+        - name: Populate the inventory on Ansible Tower
+          shell: 'awx-manage inventory_import --source={{ inventory_folder }} --inventory-name={{ inventory_name }} --overwrite --overwrite-vars'
+      when: survey_var  == "master"
+    - name: Create host_vars
+      copy:
+        dest: '{{ inventory_folder }}/host_vars/{{ fqdn }}'
+        content: |
+           ---
+           openshift_node_labels:
+             region: {{ survey_var }}
+           openshift_hostname: {{ fqdn }}

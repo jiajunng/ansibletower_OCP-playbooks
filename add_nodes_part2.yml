@@ -1,0 +1,13 @@
+---
+- hosts: 127.0.0.1
+  tasks:
+    - name: Remove node FQDN from new_masters in inventory
+      replace:
+        dest: "inventory"
+        regexp: '\[new_masters\]\n[^\n]+'
+        replace: '[new_masters]'
+    - name: Remove node FQDN from new_nodes in inventory
+      replace:
+        dest: "inventory"
+        regexp: '\[new_nodes\]\n[^\n]+'
+        replace: '[new_nodes]'
