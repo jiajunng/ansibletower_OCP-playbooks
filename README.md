@@ -3,7 +3,7 @@ Add nodes - https://docs.openshift.com/container-platform/3.9/install_config/add
 
 ## Add Nodes
 add_nodes_part1.yml
-* Add new host into `[new_nodes]`/`[new_masters]' in the inventory
+* Add new host into `[new_nodes]`/`[new_masters]` in the inventory
 * Creates host_vars file
 add_nodes_part2.yml
 * Remove new host from [`new_nodes]`/`[new_masters]` in the inventory
