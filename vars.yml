@@ -1,0 +1,6 @@
+---
+ocp_zip: /var/lib/awx/projects/_6__ocp_deployment/openshift-ansible-custom/OCP_3.9.31.tar.gz
+manual_project: /var/lib/awx/projects/ocp_deployment/
+certs_dir: /var/lib/awx/projects/_6__ocp_deployment/openshift-ansible-custom/certs
+inventory_folder: /var/lib/awx/projects/_6__ocp_deployment/openshift-ansible-custom/inventories/ph-prod
+inventory_name: rh-ocp
