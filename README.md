@@ -6,7 +6,7 @@ add_nodes_part1.yml
 * Add new host eitherinto `[new_nodes]` or `[new_masters]` in the inventory
 * Creates host_vars file required for Ansible Tower to read the host
 add_nodes_part2.yml
-* Move new host from [`new_nodes]` or `[new_masters]` to `[nodes]`/`[masters]` respectively in the inventory
+* Move new host from [`new_nodes]` or `[new_masters]` to `[nodes]` or `[masters]` respectively in the inventory
 
 ### To Use
 #### Configuration on Ansible Tower
