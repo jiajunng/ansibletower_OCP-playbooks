@@ -7,7 +7,7 @@
       block:
         - name: Add node FQDN to new_nodes in inventory
           lineinfile:
-            dest: "inventory"
+            dest: '{{ inventory }}/hosts'
             insertafter: '\[new_nodes\]'
             line: '{{ fqdn  }}'
         - name: Populate the inventory on Ansible Tower
